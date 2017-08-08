@@ -7,10 +7,12 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/theodelaune/autocsv/autocsv"
 )
 
 var file, separator, searchField, neededFields string
-var feed *Feed
+var feed *autocsv.Feed
 
 func init() {
 	flag.Usage = func() {
@@ -33,7 +35,7 @@ func init() {
 }
 
 func main() {
-	feed = New(file, separator, searchField, neededFields)
+	feed = autocsv.New(file, separator, searchField, neededFields)
 	feed.Parse()
 
 	http.HandleFunc("/autocomplete", requestHandler)

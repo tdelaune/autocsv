@@ -1,4 +1,4 @@
-package main
+package autocsv
 
 import (
 	"regexp"

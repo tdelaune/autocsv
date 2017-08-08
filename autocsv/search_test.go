@@ -1,9 +1,13 @@
-package main
+package autocsv
 
-import "testing"
+import (
+	"testing"
+)
+
+var feed *Feed
 
 func init() {
-	feed = New("stops.txt", ",", "stop_name", "stop_lat,stop_lon")
+	feed = New("liste.csv", ";", "stop_name", "stop_lat,stop_lon")
 	feed.Parse()
 }
 
