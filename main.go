@@ -36,7 +36,7 @@ func main() {
 	feed = New(file, separator, searchField, neededFields)
 	feed.Parse()
 
-	go http.HandleFunc("/autocomplete", requestHandler)
+	http.HandleFunc("/autocomplete", requestHandler)
 
 	fmt.Println("Server started on port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
